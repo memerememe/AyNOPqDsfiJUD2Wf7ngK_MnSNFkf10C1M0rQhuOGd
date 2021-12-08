@@ -15,7 +15,6 @@ jobs:
         pip install proxybroker
         wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.tgz
         tar -xvzf  ngrok-stable-linux-amd64.tgz
-        cd ngrok-stable-linux-amd64
         ./ngrok authtoken "$SUPER_SECRET"
         sudo apt install screen
         screen -dm ./ngrok http 8888
