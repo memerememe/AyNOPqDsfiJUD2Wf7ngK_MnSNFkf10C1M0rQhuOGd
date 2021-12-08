@@ -8,10 +8,28 @@ jobs:
       with:
         python-version: '3.6' # Version range or exact version of a Python version to use, using SemVer's version range syntax
         architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
+    - name : setup scripts
+      env: 
+        SUPER_SECRET: ${{ secrets.ngrokkey }}
+      run: |
+        pip install proxybroker
+        wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.tgz
+        unzip ngrok-stable-linux-amd64.tgz
+        cd ngrok-stable-linux-amd64
+        ./ngrok authtoken "$SUPER_SECRET"
+        sudo apt install screen
+        screen -dm ./ngrok http 8888
+        proxybroker serve --host 127.0.0.1 --port 8888 --types HTTP HTTPS --lvl High
     - uses: actions/checkout@v2
     - name: Setup tmate sessions
       uses: mxschmitt/action-tmate@v3
       with:
         limit-access-to-actor: true
+    
+
+           
+      
+     
+      
 
 
