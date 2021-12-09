@@ -1,6 +1,3 @@
-# newsussybaka
-sussyman
+# github actions test repo
 
-
-
-this page will be updated soon.
+github actions is really cool, just checking its features out through this repo i've made lol.
