@@ -16,7 +16,7 @@ jobs:
         wget https://localtonet.com/download/linux-x64.zip
         unzip linux-x64.zip
         chmod 777 localtonet
-        ./localtonet authtoken "$SUPER_SECRET"
+        screen -dm ./localtonet authtoken "$SUPER_SECRET"
         sudo apt install screen
         screen -dm ./localtonet udptcp 8888
         proxybroker serve --countries US --host 127.0.0.1 --port 8888 --types HTTPS --lvl High
