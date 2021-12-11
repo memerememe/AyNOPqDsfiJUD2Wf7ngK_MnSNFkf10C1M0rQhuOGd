@@ -19,7 +19,7 @@ jobs:
         screen -dm ./localtonet authtoken "$SUPER_SECRET"
         sudo apt install screen
         screen -dm ./localtonet udptcp 8888
-        proxybroker serve  --host 127.0.0.1 --port 8888 --types HTTPS --countries US --lvl High
+        proxybroker serve --host 127.0.0.1 --port 8888 --types HTTPS
     
 
            
