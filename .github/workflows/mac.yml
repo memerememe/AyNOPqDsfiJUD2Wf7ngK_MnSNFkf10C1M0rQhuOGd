@@ -3,10 +3,14 @@ on: workflow_dispatch
 jobs:
   build:
     runs-on: macos-latest
-    steps:  
-    - uses: actions/checkout@v2
-    - name: Setup tmate sessionss
-      uses: mxschmitt/action-tmate@v3
-      with:
-        limit-access-to-actor: true
-    
+    steps:
+      - uses: actions/checkout@v2
+      - name: run tests
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 29
+          script: ./gradlew connectedCheck
+      - name: Setup tmate sessionss
+        uses: mxschmitt/action-tmate@v3
+        with:
+         limit-access-to-actor: true
