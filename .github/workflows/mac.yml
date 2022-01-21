@@ -9,6 +9,7 @@ jobs:
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 29
+          script: sleep 10
       - name: Setup tmate sessionss
         uses: mxschmitt/action-tmate@v3
         with:
